@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jihan Mutiara Kautsar | Budaya Sunda & Pendidikan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sunda-gold: #d4af37;
+            --sunda-dark: #2d3436;
+            --sunda-cream: #fdfbf7;
+            --text-main: #2d3436;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--sunda-cream);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .aksara {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- Reveal Animation --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sunda-gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--sunda-dark);
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--sunda-gold);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(253, 251, 247, 0.8), rgba(253, 251, 247, 0.8)), 
+                        url('https://www.transparenttextures.com/patterns/batik-thin.png');
+        }
+
+        .profile-wrapper {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--sunda-dark);
+        }
+
+        .aksara-title {
+            font-size: 1.5rem;
+            color: var(--sunda-gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* --- Card Styling --- */
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            height: 100%;
+        }
+
+        /* --- Gallery Grid --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .tag {
+            background: var(--sunda-gold);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            width: fit-content;
+        }
+
+        /* --- Footer --- */
+        .contact-box {
+            background: var(--sunda-dark);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            border-radius: 60px 60px 0 0;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .method {
+            text-decoration: none;
+            color: white;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            min-width: 250px;
+            transition: var(--transition);
+        }
+
+        .method:hover {
+            border-color: var(--sunda-gold);
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">JIHAN.</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#profil">Profil</a></li>
+                    <li><a href="#pencapaian">Pencapaian</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="profile-wrapper">
+            <img src="https://img.sanishtech.com/u/ae67aedb54d2aa5e9062b143e0d52556.jpeg" alt="Jihan" class="profile-img">
+        </div>
+        <span class="aksara-title">ᮏᮤᮠᮔ᮪ ᮙᮥᮒᮤᮃᮛ ᮊᮅᮒ᮪ᮞᮁ</span>
+        <h1>Jihan Mutiara Kautsar</h1>
+        <p>Penyelaras Seni, Budaya, & Pendidikan</p>
+    </section>
+
+    <!-- Profil -->
+    <section id="profil" class="container" style="padding: 100px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+            <div class="reveal">
+                <h2 style="margin-bottom: 2rem; color: var(--sunda-gold);">Sampurasun!</h2>
+                <p>Saya <strong>Jihan Mutiara Kautsar</strong>, siswi kelas XII di SMAN 1 Subang. Sejak kecil, saya telah akrab dengan dunia seni dan budaya Sunda, mulai dari tari, pupuh, hingga berbagai bentuk kesenian tradisional lainnya.</p>
+                <p style="margin-top: 1rem;">Berkat bimbingan keluarga, kecintaan saya terhadap budaya Sunda tumbuh secara alami. Saya memiliki minat besar di bidang sastra dan bahasa, serta bercita-cita menjadi guru atau dosen.</p>
+            </div>
+            <div class="card reveal">
+                <h3 style="margin-bottom: 1.5rem;">Riwayat Pendidikan</h3>
+                <p>• SMAN 1 Subang (Sekarang)</p>
+                <p>• SMPN 1 Sagalaherang</p>
+                <p>• SDN 2 Sagalaherang</p>
+                <p>• TK Dewi Sartika</p>
+                <p>• PAUD Kasih Ibu</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pencapaian -->
+    <section id="pencapaian" style="padding: 100px 0; background: #f9f9f9;">
+        <div class="container reveal">
+            <h2 style="text-align: center; margin-bottom: 4rem;">Galeri Pencapaian</h2>
+            
+            <!-- Grid 5 Foto -->
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="https://img.sanishtech.com/u/aec758d4569e5b7091dbb8d252c26621.jpeg" alt="FTBI">
+                    <div class="gallery-overlay">
+                        <div class="tag">Regional</div>
+                        <h3>FTBI Jawa Barat</h3>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://img.sanishtech.com/u/097b2cc8dea4b92426ac9960d9ddfd3d.jpeg" alt="Duta">
+                    <div class="gallery-overlay">
+                        <div class="tag">Ambassador</div>
+                        <h3>Duta Cagar Budaya</h3>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://img.sanishtech.com/u/93f74f0c3cdb8d2c02fccaa99335e5a1.jpg" alt="Literasi">
+                    <div class="gallery-overlay">
+                        <div class="tag">Achievement</div>
+                        <h3>Seni & Literasi</h3>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://img.sanishtech.com/u/f917aa6b534fb301d8af5d3a74c522fe.jpg" alt="Festival">
+                    <div class="gallery-overlay">
+                        <div class="tag">Winner</div>
+                        <h3>Subang Festival 2024</h3>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://img.sanishtech.com/u/9a15cbb9b345c571467bff288f56aae1.jpg" alt="Paskibra">
+                    <div class="gallery-overlay">
+                        <div class="tag">Leadership</div>
+                        <h3>Wakil Ketua Paskibra</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="card">
+                    <h3 style="color: var(--sunda-gold); margin-bottom: 1rem;">Pengalaman</h3>
+                    <p>• Duta Cagar Budaya Subang 2022</p>
+                    <p>• Peserta FTBI Prov. Jawa Barat 2022</p>
+                    <p>• Wakil Ketua Paskibra SMP</p>
+                </div>
+                <div class="card">
+                    <h3 style="color: var(--sunda-gold); margin-bottom: 1rem;">Prestasi Utama</h3>
+                    <p>• Juara 1 School Creation Subang Festival 2024</p>
+                    <p>• Juara Nulis Carpon & Ngadongeng</p>
+                    <p>• Juara Seni Tari & LKBB</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <footer id="contact" class="contact-box">
+        <div class="container">
+            <h2>Mari Berkolaborasi</h2>
+            <div class="contact-methods">
+                <a href="https://wa.me/6283861583521" class="method"><strong>WhatsApp</strong><br>+62 838-6158-3521</a>
+                <a href="https://instagram.com/jihnmutia" class="method"><strong>Instagram</strong><br>@jihnmutia</a>
+                <a href="mailto:jihanmutiara625@gmail.com" class="method"><strong>Email</strong><br>jihanmutiara625@gmail.com</a>
+            </div>
+            <p style="margin-top: 5rem; opacity: 0.5; font-size: 0.8rem;">&copy; 2026 Jihan Mutiara Kautsar. Wilujeng Sumping.</p>
+        </div>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
